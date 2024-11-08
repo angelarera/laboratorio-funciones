@@ -7,38 +7,46 @@ function actualizarTurno() {
 }
 
 // Botón de reseteo
-const resetBtn = document.querySelector(".reset-btn") as HTMLButtonElement;
+const resetBtn = document.querySelector(".reset-btn");
 
-resetBtn.addEventListener("click", () => {
-  turnoActual = 0;
-  actualizarTurno();
-});
+if (resetBtn !== null && resetBtn instanceof HTMLButtonElement) {
+  resetBtn.addEventListener("click", () => {
+    turnoActual = 0;
+    actualizarTurno();
+  });
+}
 
 // Botón anterior
-const prevBtn = document.querySelector(".prev-btn") as HTMLButtonElement;
+const prevBtn = document.querySelector(".prev-btn");
 
-prevBtn.addEventListener("click", () => {
-  if (turnoActual > 0) {
-    turnoActual -= 1; // "-= 1" es una forma abreviada de poner "= turnoActual - 1"
-    actualizarTurno();
-  }
-});
+if (prevBtn !== null && prevBtn instanceof HTMLButtonElement) {
+  prevBtn.addEventListener("click", () => {
+    if (turnoActual > 0) {
+      turnoActual -= 1; // "-= 1" es una forma abreviada de poner "= turnoActual - 1"
+      actualizarTurno();
+    }
+  });
+}
 
 // Botón posterior
-const nextBtn = document.querySelector(".next-btn") as HTMLButtonElement;
+const nextBtn = document.querySelector(".next-btn");
 
-nextBtn.addEventListener("click", () => {
-  turnoActual += 1; // "+= 1" es una forma abreviada de poner "= turnoActual + 1"
-  actualizarTurno();
-});
+if (nextBtn !== null && nextBtn instanceof HTMLButtonElement) {
+  nextBtn.addEventListener("click", () => {
+    turnoActual += 1; // "+= 1" es una forma abreviada de poner "= turnoActual + 1"
+    actualizarTurno();
+  });
+}
 
 // Añadir turno manualmente
-const enviarBtn = document.querySelector(".enviar-btn") as HTMLButtonElement;
+const enviarBtn = document.querySelector(".enviar-btn");
 
-enviarBtn.addEventListener("click", () => {
-  const numeroManual = parseInt(
-    (document.querySelector(".numero-manual") as HTMLInputElement).value
-  );
-  turnoActual = numeroManual;
-  actualizarTurno();
-});
+if (enviarBtn !== null && enviarBtn instanceof HTMLButtonElement) {
+  enviarBtn.addEventListener("click", () => {
+    const numeroManual = parseInt(
+      (document.querySelector(".numero-manual") as HTMLInputElement).value
+    );
+    turnoActual = numeroManual;
+    actualizarTurno();
+  });
+}
